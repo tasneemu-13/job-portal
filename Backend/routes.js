@@ -52,8 +52,15 @@ router.delete("/jobs/:id", async (req, res) => {
 router.post("/delete-job/:jobId", async (req, res) => {
     try {
         const jobId = req.params.jobId;
-        console.log("Came to delete:", jobId);
-        await JobModel.findByIdAndDelete(jobId);
+        console.log("Received jobId to delete:", jobId);
+
+        const deletedJob = await JobModel.findByIdAndDelete(jobId);
+        console.log("Deleted Job from DB:", deletedJob);
+
+        if (!deletedJob) {
+            return res.status(404).send({ error: "Job not found" });
+        }
+
         res.status(200).send({ msg: "Job deleted successfully using POST" });
     } catch (error) {
         console.error("Error deleting job via POST:", error);
