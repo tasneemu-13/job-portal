@@ -6,7 +6,8 @@ const DeleteJob = ({ jobId, onDelete }) => {
 
   const handleDelete = async () => {
     try {
-      await axios.post(`http://localhost:1234/api/v1/delete-job/${jobId}`); // make sure URL matches your server
+      await axios.post(`https://your-backend-url-on-render.com/api/v1/delete-job/${jobId}`);
+ // make sure URL matches your server
       console.log("Deleted job:", jobId);
       setMessage("Job deleted successfully! ✅"); // 👈 set success message
       if (onDelete) onDelete(); // refresh list
