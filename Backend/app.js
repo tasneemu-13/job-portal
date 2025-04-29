@@ -6,7 +6,7 @@ const app = express();
 
 // ✅ Fix CORS configuration
 app.use(cors({
-    origin: 'http://localhost:5173',  // ✅ Corrected Origin
+    origin: 'https://job-portal-delta-steel.vercel.app',  // Update to Vercel URL
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
@@ -20,3 +20,4 @@ app.use(morgan('dev'));
 app.use("/api/v1", require("./routes"));  // Fixed missing `/`
 
 module.exports = app;
+
