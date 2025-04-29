@@ -6,7 +6,8 @@ import * as yup from 'yup'
 import { skills } from "../../../utils/constant"
 import { axiosClient } from '../../../utils/utils'
 import { toast } from 'react-toastify'
-import { useJobContext } from '../../../Context/JobContext'
+import { useJobContext } from '../../../context/JobContext';
+
 
 
 const AddJob = () => {
